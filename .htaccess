@@ -1,0 +1,7 @@
+DirectoryIndex the.cow
+Options +ExecCGI
+AddHandler cgi-script .cow
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule   ^(.*)$  the.cow/$1 [L]
