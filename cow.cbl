@@ -1,5 +1,5 @@
        identification division.
-       program-id. cgienv.
+       program-id. cow.
 
        environment division.
 
@@ -538,7 +538,7 @@
 
 
 
-       end program cgienv.
+       end program cow.
 
 
  
