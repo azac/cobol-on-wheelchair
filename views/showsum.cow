@@ -1,0 +1,14 @@
+<html>
+	<head>
+		<title>
+			Sum example.
+		</title>
+	</head>
+	<body>
+
+		<h2> 
+			{{number1}} + {{number2}} = {{number3}}		
+		</h2>	
+
+	</body>
+</html>		

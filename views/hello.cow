@@ -1,0 +1,12 @@
+<html>
+	<head>
+		<title>
+			Hello {{username}}.
+		</title>
+	</head>
+	<body>
+
+		<h2> Hello {{username}}! </h2>	
+
+	</body>
+</html>		

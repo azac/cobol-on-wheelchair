@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title>
+			Hello CoW.
+		</title>
+	</head>
+	<body>
+				<img src='images/logo.png' hspace=30 align=left>
+
+
+		<h2>Cobol on Wheelchair says hello!</h2>
+		<P>
+		<b>Examples</b>
+		<ul>
+			<li><a href="showname/Adrian">Hello World</a>
+			<li><a href="showsum/22/11">Calculator (values from path)</a>	
+
+	</body>
+</html>		
