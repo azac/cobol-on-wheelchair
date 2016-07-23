@@ -23,4 +23,4 @@ cd cobol-on-wheelchair
 Tutorial
 --------
 
-http://azac.pl/cobol-on-wheelchair/
+http://adrianzandberg.pl/azac/cobol-on-wheelchair/
