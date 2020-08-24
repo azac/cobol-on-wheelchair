@@ -11,7 +11,7 @@ _COBOL on Wheelchair_ is a minimal webframework\^H\^H\^H\^H\^H\^H just a proof o
 In order to run _COBOL on Wheelchair_ you will need:
 
 - some http server;
-- [GNU COBOL](https://sourceforge.net/projects/open-cobol/) [`sudo apt-get install open-cobol];
+- [GNU COBOL](https://sourceforge.net/projects/open-cobol/) [`sudo apt-get install open-cobol`];
 - ability to run cgi-bin.
 
 ## Installation
