@@ -78,7 +78,7 @@
  web-header.
 
        display
-           "content-type: text/html"
+           "content-type: text/html; charset=utf-8"
            newline
        end-display.
 
