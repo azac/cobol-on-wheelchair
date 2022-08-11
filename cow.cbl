@@ -382,7 +382,7 @@
 
 
        identification division.
-       program-id. template.
+       program-id. cowtemplate.
 
        environment division.
        input-output section.
@@ -527,7 +527,7 @@
            stop run
            .
        end program checkfilestatus.
-       end program template.
+       end program cowtemplate.
 
 
 
