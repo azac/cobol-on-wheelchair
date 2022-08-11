@@ -64,7 +64,15 @@ The directory structure:
 
 ### Routing
 
-Routing is set in config.cbl file, using two tables. One (_routing-pattern_) holds paths, the other (_routing-destiny_) - names of attached controllers (COBOL subprograms). The following code:
+Routing is set in config.cbl file, using two tables. One (_routing-pattern_) holds paths, the other (_routing-destiny_) - names of attached controllers (COBOL subprograms).
+
+First, set the number of routes. It is hard-coded for now.
+
+```
+       move 3 to nroutes.
+```
+
+The following code:
 
 ```
        move "/example/path"        to routing-pattern(1).
