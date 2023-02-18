@@ -16,7 +16,7 @@
 
        procedure division.
 
-           call 'template' using the-vars "index.cow".
+           call 'cowtemplate' using the-vars "index.cow".
 
       
        goback.

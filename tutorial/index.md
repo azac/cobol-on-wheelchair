@@ -64,7 +64,15 @@ The directory structure:
 
 ### Routing
 
-Routing is set in config.cbl file, using two tables. One (_routing-pattern_) holds paths, the other (_routing-destiny_) - names of attached controllers (COBOL subprograms). The following code:
+Routing is set in config.cbl file, using two tables. One (_routing-pattern_) holds paths, the other (_routing-destiny_) - names of attached controllers (COBOL subprograms).
+
+First, set the number of routes. It is hard-coded for now.
+
+```
+       move 3 to nroutes.
+```
+
+The following code:
 
 ```
        move "/example/path"        to routing-pattern(1).
@@ -178,7 +186,7 @@ In order to use the template, you need to prepare variables and call templating 
         move "username" to COW-varname(1).
         move COW-query-value(1) to COW-varvalue(1).
 
-        call 'template' using the-vars "hello.cow".
+        call 'cowtemplate' using the-vars "hello.cow".
 
     goback.
     end program helloworld.
@@ -198,10 +206,10 @@ Assuming you want to inform the templating engine that `{{username}}` should equ
     move "Edsger Dijkstra" to COW-varvalue(1).
 ```
 
-When the templating variables are ready, we can invoke the 'template' routine. First argument identifies the templating variables, second informs which template file should be used:
+When the templating variables are ready, we can invoke the 'cowtemplate' routine. First argument identifies the templating variables, second informs which template file should be used:
 
 ```
-    call 'template' using the-vars "hello.cow".
+    call 'cowtemplate' using the-vars "hello.cow".
 ```
 
 In the helloworld example above {{username}} is set to COW-query-value(1). As the result controller will inject the value received from the PATH into the template.

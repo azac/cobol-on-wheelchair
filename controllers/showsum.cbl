@@ -42,7 +42,7 @@
            MOVE function trim(sum-result) to COW-varvalue(3).
 
 
-           call 'template' using the-vars "showsum.cow".
+           call 'cowtemplate' using the-vars "showsum.cow".
 
       
        goback.

@@ -28,7 +28,7 @@
            MOVE "username" to COW-varname(1).
            MOVE COW-query-value(1) to COW-varvalue(1).   
 
-           call 'template' using the-vars "hello.cow".
+           call 'cowtemplate' using the-vars "hello.cow".
 
       
        goback.
