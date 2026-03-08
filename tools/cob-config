@@ -1,0 +1,143 @@
+#!/bin/sh
+#
+# cob-config
+#
+# Copyright (C) 2003-2012, 2020, 2023 Free Software Foundation, Inc.
+# Written by Keisuke Nishida, Roger While, Simon Sobisch, Fabrice Le Fessant
+#
+# This file is part of GnuCOBOL.
+#
+# The GnuCOBOL compiler is free software: you can redistribute it
+# and/or modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# GnuCOBOL is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with GnuCOBOL.  If not, see <https://www.gnu.org/licenses/>.
+
+
+prefix=/home/reymon/opt/tools
+exec_prefix=${prefix}
+exec_prefix_set=no
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+bindir=${exec_prefix}/bin
+datarootdir=${prefix}/share
+datadir=${datarootdir}
+includedir=${prefix}/include
+mandir=${datarootdir}/man
+
+version="3.2.0"
+cflags="-pipe -I/home/reymon/opt/tools/include -Wno-unused -fsigned-char -Wno-pointer-sign"
+libs="-L${exec_prefix}/lib -lcob"
+
+THIS="libcob (GnuCOBOL)"
+me=`basename $0` #cob-config
+
+usage()
+{
+	cat <<EOF
+Usage: $me [options]
+
+echos configuration variables of ${THIS}.
+
+Options:
+  --prefix           echos the package-prefix of ${THIS}
+  --exec-prefix      echos the executable-prefix of ${THIS}
+
+  --cflags           echos the C compiler flags needed to compile with ${THIS}
+  --libs             echos the libraries needed to link with ${THIS}
+
+  --version          echos the release+patchdate version of ${THIS}
+
+  --bindir           echos the directory containing ${THIS} programs
+  --datarootdir      echos the data root for ${THIS}
+  --datadir          echos the directory containing ${THIS} data
+  --includedir       echos the directory containing ${THIS} header files
+  --libdir           echos the directory containing ${THIS} libraries
+  --mandir           echos the directory containing ${THIS} manpages
+
+  --help             prints this message
+EOF
+	exit $1
+}
+
+if test $# -eq 0; then
+	usage 1 1>&2
+fi
+
+while test $# -gt 0; do
+  case "$1" in
+  -*=*) optarg=`echo "$1" | sed 's/[-_a-zA-Z0-9]*=//'` ;;
+  *) optarg= ;;
+  esac
+
+  case $1 in
+    -prefix=* | --prefix=* | --prefi=* | --pref=* | --pre=* | --pr=* | --p=*)
+      prefix=$optarg
+      if test $exec_prefix_set = no ; then
+        exec_prefix=$optarg
+      fi
+      ;;
+    -exec-prefix=* | --exec_prefix=* | --exec-prefix=* | --exec-prefi=* \
+    | --exec-pref=* | --exec-pre=* | --exec-pr=* | --exec-p=* | --exec-=* \
+    | --exec=* | --exe=* | --ex=*)
+      exec_prefix=$optarg
+      exec_prefix_set=yes
+      ;;
+    -prefix | --prefix | --prefi | --pref | --pre | --pr | --p)
+      echo ${prefix}
+      ;;
+    -exec-prefix | --exec_prefix | --exec-prefix | --exec-prefi \
+    | --exec-pref | --exec-pre | --exec-pr | --exec-p | --exec- \
+    | --exec | --exe | --ex)
+      echo ${exec_prefix}
+      ;;
+    -version | --version | --versio | --versi | --vers | -V)
+      echo ${version}
+      ;;
+    -cflags | --cflags | --cflag | --cfla | --cfl | --cf | --c | -c)
+      echo ${cflags}
+      ;;
+    -libs | --libs | --lib | --li | --l | -l)
+      echo ${libs}
+      ;;
+    -bindir | --bindir | --bindi | --bind | --bin | --bi)
+      echo ${bindir}
+      ;;
+    -datarootdir | --datarootdir | --datarootdi | --datarootd | --dataroot \
+    | --dataroo | --dataro | --datar)
+      echo ${datarootdir}
+      ;;
+    -datadir | --datadir | --datadi | --datad)
+      echo ${datadir}
+      ;;
+    -includedir | --includedir | --includedi | --included | --include \
+    | --includ | --inclu | --incl | --inc)
+      echo ${includedir}
+      ;;
+    -libdir | --libdir | --libdi | --libd)
+      echo ${libdir}
+      ;;
+    -mandir | --mandir | --mandi | --mand | --man | --ma | --m | -m)
+      echo ${mandir}
+      ;;
+    -help | --help | --hel | --he | -h)
+	cat <<EOF
+This is a shell script which simplifies configuring applications
+against a particular version of the GnuCOBOL library.
+
+EOF
+      usage 0
+      ;;
+    *)
+      usage 1 1>&2
+      ;;
+  esac
+  shift
+done
